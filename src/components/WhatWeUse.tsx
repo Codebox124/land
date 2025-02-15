@@ -3,6 +3,7 @@
 
 import { useTheme } from "@/contexts/ThemeContext";
 import "../styles/what-we-use.scss";
+import Image from "next/image";
 
 const WhatWeUse = () => {
     const { theme } = useTheme();
@@ -18,7 +19,7 @@ const WhatWeUse = () => {
                         Become a part of our network by subscribing to our services. Once you&apos;re on board, simply submit your request
                         for a new project, and we’ll get started on turning your vision into reality.
                     </p>
-                    <img
+                    <Image
                         src="https://tailwindcss.com/_next/static/media/logo.1e71db9c02f7c3a6abef2a0b5d7cfb70.svg"
                         alt="Tailwind CSS Logo"
                         className="stepImage"
@@ -31,7 +32,7 @@ const WhatWeUse = () => {
                         Our team gets to work, crafting bespoke designs and developing the core functionality of your project. From the
                         initial concept to full implementation, we focus on creating solutions that are...
                     </p>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" className="stepImage" />
+                    <Image src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo" className="stepImage" />
                 </div>
             </div>
         </section>
