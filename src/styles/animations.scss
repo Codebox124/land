@@ -1,0 +1,53 @@
+// Keyframes
+@keyframes slideFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  75% {
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  75% {
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Animation utility classes
+.animate {
+  &-slideFromTop {
+    opacity: 0;
+    animation: slideFromTop 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  &-slideFromBottom {
+    opacity: 0;
+    animation: slideFromBottom 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  &-fadeIn {
+    opacity: 0;
+    animation: fadeIn 1.25s ease-out forwards;
+  }
+}

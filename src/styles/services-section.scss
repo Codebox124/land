@@ -1,0 +1,206 @@
+@use "sass:color";
+@use "./page";
+
+// Variables
+$primary-color: #45c5af;
+$secondary-color: #13678a;
+$text-color: #272727;
+$background-start: #f9fafb;
+$background-middle: #fdf2f8;
+$background-end: #dafdb9;
+
+// Dark mode colors
+$dark-background: #1a1a1a;
+$dark-text: #ffffff;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+.services-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: page.$background-start;
+    transition: background-color 0.3s ease;
+
+    .dark & {
+        background-color: page.$dark-background;
+    }
+
+    @include page.mobile {
+        padding: 1rem;
+    }
+
+    .container {
+        max-width: 72rem;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin-bottom: 0.75rem;
+
+        .dark & {
+            color: #9ca3af;
+        }
+    }
+
+    .content-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        @media (min-width: $desktop) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        h1 {
+            font-size: 1.625rem;
+            line-height: 1.5;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.5rem;
+
+            .dark & {
+                color: page.$dark-text;
+            }
+        }
+
+        p {
+            font-size: 0.75rem;
+            line-height: 1.6;
+            color: #000000;
+            max-width: 36rem;
+
+            .dark & {
+                color: #e5e7eb;
+            }
+        }
+    }
+
+    .services-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .service-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+
+        .icon-container {
+            background-color: white;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+            .dark & {
+                background-color: #374151;
+            }
+
+            svg {
+                width: 1.25rem;
+                height: 1.25rem;
+                color: page.$primary-color;
+            }
+        }
+
+        .service-details {
+            h3 {
+                font-weight: 600;
+                color: #1f2937;
+                font-size: 0.875rem;
+                margin-bottom: 0.25rem;
+
+                .dark & {
+                    color: #e5e7eb;
+                }
+            }
+
+            p {
+                color: #4b5563;
+                font-size: 0.75rem;
+                line-height: 1.6;
+
+                .dark & {
+                    color: #9ca3af;
+                }
+            }
+        }
+    }
+
+    .image-section {
+        position: relative;
+        height: 100%;
+        min-height: 24rem;
+
+        .website-example {
+            position: absolute;
+            width: 11.5rem;
+            height: 18rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            .dark & {
+                background-color: #374151;
+                border-color: #4b5563;
+            }
+
+            &:first-child {
+                top: 3rem;
+                left: 2rem;
+            }
+
+            &:last-child {
+                top: -1rem;
+                left: 15rem;
+            }
+
+            @include page.mobile {
+                &:first-child {
+                    left: 1rem;
+                }
+
+                &:last-child {
+                    left: 10rem;
+                }
+            }
+
+            .placeholder-text {
+                color: #d9d9d9;
+                font-size: 1.25rem;
+                font-weight: 700;
+
+                .dark & {
+                    color: #6b7280;
+                }
+            }
+
+            .scroll-text {
+                color: #d9d9d9;
+                font-size: 0.75rem;
+                margin-top: 0.5rem;
+
+                .dark & {
+                    color: #6b7280;
+                }
+            }
+        }
+    }
+}

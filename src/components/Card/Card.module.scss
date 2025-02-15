@@ -1,0 +1,24 @@
+@use "@/styles/tokens" as *;
+
+.card {
+  background-color: rgba($color-bg-100, 0.875);
+
+  border: $border-width-base solid $border-color-base;
+  border-radius: $border-radius-lg;
+
+  box-shadow: $boxShadow-base;
+  overflow: hidden;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -10%;
+  width: 120%;
+  height: $spacing-20;
+  z-index: -1;
+
+  background-color: $color-primary;
+  border-radius: 50%;
+  opacity: 0.2;
+  filter: blur(100px);
+}

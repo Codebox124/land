@@ -1,0 +1,30 @@
+@use "./tokens.scss" as *;
+
+@forward "@/@design/build/_utilities.scss";
+
+.text-primary-gradient {
+  background: linear-gradient(
+    to top,
+    $color-primary-light 7.5%,
+    $color-primary
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-stroke: 1px transparent;
+
+  text-shadow: 0 0 14px rgba($color-primary-light, 0.35);
+}
+
+.separator-x {
+  width: 100%;
+  height: $border-width-base;
+  background-color: $border-color-light;
+}
+
+.separator-y {
+  width: $border-width-base;
+  height: 100%;
+  background-color: $border-color-light;
+}

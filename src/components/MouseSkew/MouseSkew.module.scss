@@ -1,0 +1,13 @@
+@use "@/styles/tokens" as *;
+
+.MouseSkew {
+    --rotate-x: 0deg;
+    --rotate-y: 0deg;
+    transform: perspective(1000px) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+    transition: transform $animation-transition-base;
+    will-change: transform;
+
+    &:hover {
+        transition-duration: 20ms;
+    }
+}

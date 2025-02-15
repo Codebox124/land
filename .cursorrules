@@ -1,0 +1,63 @@
+project:
+  name: Next.js Frontend Project
+  techStack:
+    framework: Next.js
+    styling: SCSS
+    language: TypeScript
+    router: App Router
+
+tokenSources:
+  design:
+    utilities: src/@design/build/_utilities.scss
+    variables: src/@design/tokens/_variables.scss
+    colors: src/@design/tokens/_colors.scss
+    typography: src/@design/tokens/_typography.scss
+    spacing: src/@design/tokens/_spacing.scss
+  styles:
+    globals: src/styles/globals.scss
+    tokens: src/styles/_tokens.scss
+    utilities: src/styles/_utilities.scss
+
+conventions:
+  typescript:
+    strictMode: true
+    typeDefinitions:
+      - prefer interfaces over types
+      - explicit parameter types
+      - explicit return types
+      - use enums for fixed values
+      - generics for reusable components
+    nullChecks: strict
+
+  scss:
+    methodology: BEM
+    maxNestingLevel: 3
+    utilities:
+      spacing: $tokenSources.design.spacing
+      colors: $tokenSources.design.colors
+      typography: $tokenSources.design.typography
+      breakpoints: $tokenSources.design.variables
+
+fileStructure:
+  components:
+    path: ./src/components/ComponentName/
+    files:
+      - ComponentName.tsx
+      - index.tsx
+      - ComponentName.module.scss
+    naming:
+      component: PascalCase
+      styles: camelCase
+      exports: default export
+
+patterns:
+  components:
+    props:
+      interface: ComponentNameProps
+      naming: PascalCase
+    styling:
+      moduleImport: '@use "@/styles/tokens" as *'
+      classNames: camelCase
+    exports:
+      type: default
+      barrel: true

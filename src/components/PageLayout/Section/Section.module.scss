@@ -1,0 +1,6 @@
+@use "@/styles/tokens" as *;
+
+.section {
+  padding: $spacing-14 0;
+  position: relative;
+}

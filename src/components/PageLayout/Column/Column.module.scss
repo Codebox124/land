@@ -1,0 +1,46 @@
+@use "@/styles/tokens" as *;
+
+$total-columns: 12;
+
+.col {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  flex: 0 0 auto;
+}
+
+.col-auto {
+  width: auto;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+// Generate column widths
+@for $i from 1 through $total-columns {
+  .col-#{$i} {
+    flex: 0 0 calc(($i / $total-columns) * 100%);
+    max-width: calc(($i / $total-columns) * 100%);
+  }
+
+  .offset-#{$i} {
+    margin-left: calc(($i / $total-columns) * 100%);
+  }
+}
+
+// Breakpoint specific columns
+@each $breakpoint, $width in $breakpoints-values-map {
+  .#{$breakpoint}\:col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+  }
+
+  @media (min-width: $width) {
+    @for $i from 1 through $total-columns {
+      .#{$breakpoint}\:col-#{$i} {
+        flex: 0 0 calc(($i / $total-columns) * 100%);
+        max-width: calc(($i / $total-columns) * 100%);
+      }
+    }
+  }
+}

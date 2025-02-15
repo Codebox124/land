@@ -1,0 +1,49 @@
+@use "@/styles/tokens" as *;
+
+.footer {
+  width: 100%;
+  padding: 0 $spacing-6;
+  padding-top: $spacing-1;
+  background-color: #000;
+}
+
+.socialsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-1-5;
+
+  > * {
+    width: $spacing-5;
+    height: $spacing-5;
+    background: $gradient-primary;
+    border-radius: 50%;
+    padding: $spacing-0-5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-bg-100;
+    transition: all $animation-transition-base;
+
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.logoContainer {
+  display: flex;
+
+  img {
+    object-fit: contain;
+    height: 68px;
+    width: auto;
+  }
+}
+
+.copyright {
+  color: $color-text-muted;
+  font-size: $typography-fontSize-sm;
+  opacity: 0.6;
+}

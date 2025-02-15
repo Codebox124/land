@@ -1,0 +1,63 @@
+@use "@/styles/tokens" as *;
+
+@keyframes slideshowScrollToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideshowScrollToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: $spacing-2;
+}
+
+.slideshowContent {
+  display: flex;
+  flex-direction: row;
+  gap: $spacing-3;
+  width: max-content;
+  animation-duration: var(--scroll-speed-time, 20s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.right {
+  animation-name: slideshowScrollToRight;
+}
+
+.left {
+  animation-name: slideshowScrollToLeft;
+}
+
+.slideshowItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all $animation-transition-base;
+
+  &:hover {
+    transform: translateY(-2.5px);
+  }
+}

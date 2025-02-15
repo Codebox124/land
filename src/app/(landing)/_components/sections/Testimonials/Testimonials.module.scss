@@ -1,0 +1,27 @@
+@use "@/styles/tokens" as *;
+
+.testimonialsSection {
+  overflow: hidden;
+}
+
+.glowBg {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 40%;
+  height: 40%;
+  z-index: -1;
+
+  background-color: $color-primary;
+  border-radius: 50%;
+  filter: blur(140px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewsContainer {
+  position: relative;
+  background-color: $color-bg-100;
+}

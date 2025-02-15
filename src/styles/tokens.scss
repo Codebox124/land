@@ -1,0 +1,13 @@
+@forward "@/@design/build/_variables.scss";
+@use "@/@design/build/_variables.scss" as *;
+
+$gradient-primary: linear-gradient(
+  to top,
+  $color-primary,
+  $color-primary-light
+);
+$gradient-primary-inverted: linear-gradient(
+  to bottom,
+  $color-primary,
+  $color-primary-light
+);

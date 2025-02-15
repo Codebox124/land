@@ -1,0 +1,47 @@
+@use "./tokens" as *;
+@use "./utilities" as *;
+@use "./animations" as *;
+@use "tailwindcss" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Reset and base styles
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $typography-fontFamily-main;
+    font-size: $typography-fontSize-base;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    letter-spacing: 0.015em;
+
+    color: $color-text-base;
+    background-color: $color-bg-base;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: inherit;
+}
+
+p {
+    margin: 0;
+}

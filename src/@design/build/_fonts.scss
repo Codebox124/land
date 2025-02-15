@@ -1,0 +1,15 @@
+// Font Family
+$font-aptos: var(--font-aptos);
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Font Mixin
+@mixin font-aptos {
+  font-family: $font-aptos;
+}

@@ -1,0 +1,180 @@
+@use "_variables" as *; // Import global variables if available
+
+$border-radius: 10px;
+$shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$primary-color: #45c5af;
+$secondary-color: #13678a;
+$text-color: #272727;
+$background-start: #f9fafb;
+$background-middle: #fdf2f8;
+$background-end: #dafdb9;
+
+// Dark mode colors
+$dark-background: #1a1a1a;
+$dark-text: #ffffff;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+.pricing {
+  text-align: center;
+  padding: 60px 20px;
+  background: $background-start;
+  color: $text-color;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  &.dark {
+    background: $dark-background;
+    color: $dark-text;
+  }
+
+  .pricing-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  .pricing-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .pricing-card {
+    background: white;
+    padding: 30px;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    text-align: left;
+    width: 320px;
+    transition: transform 0.3s ease;
+
+    .dark & {
+      background: darken($dark-background, 10%);
+      color: $dark-text;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &.popular {
+      border: 2px solid $primary-color;
+      position: relative;
+
+      &::before {
+        content: "Popular";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $primary-color;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+    }
+
+    .plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: $secondary-color;
+    }
+
+    .plan-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .plan-description {
+      font-size: 0.95rem;
+      color: $secondary-color;
+      margin-bottom: 15px;
+    }
+
+    .plan-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: $primary-color;
+      margin-bottom: 10px;
+
+      .per {
+        font-size: 0.9rem;
+        font-weight: normal;
+        color: $secondary-color;
+      }
+    }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      font-size: 0.9rem;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+
+        &:before {
+          content: "✔";
+          color: $primary-color;
+        }
+      }
+    }
+
+    .btn {
+      width: 100%;
+      background: $primary-color;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: $border-radius;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .consultation {
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+
+  .consultation-btn {
+    background: transparent;
+    border: 2px solid $primary-color;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: $border-radius;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

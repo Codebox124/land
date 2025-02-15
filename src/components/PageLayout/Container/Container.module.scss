@@ -1,0 +1,19 @@
+@use "@/styles/tokens" as *;
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+  max-width: $breakpoints-xl;
+
+  @media (max-width: $breakpoints-md) {
+    padding-left: $spacing-2;
+    padding-right: $spacing-2;
+  }
+
+  &.fluid {
+    max-width: none;
+  }
+}

@@ -1,0 +1,328 @@
+@use "sass:color";
+
+// Variables
+$primary-color: #45c5af;
+$secondary-color: #13678a;
+$text-color: #272727;
+$background-start: #f9fafb;
+$background-middle: #fdf2f8;
+$background-end: #dafdb9;
+
+// Dark mode colors
+$dark-background: #1a1a1a;
+$dark-text: #ffffff;
+
+// Breakpoints
+$mobile: 640px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin button-base {
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    @include flex-center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-left: 1rem;
+    }
+}
+
+// Main Styles
+.page-container {
+    min-height: max-content;
+    background: linear-gradient(
+        to right,
+        $background-start,
+        $background-middle,
+        $background-end
+    );
+    padding: 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+
+    @include mobile {
+        padding: 1rem;
+    }
+
+    // Dark mode styles
+    .dark & {
+        background: linear-gradient(
+            to right,
+            color.adjust($dark-background, $lightness: -5%),
+            $dark-background,
+            color.adjust($dark-background, $lightness: -2%)
+        );
+    }
+}
+
+.logo-container {
+    position: relative;
+    top: -2rem;
+    left: 3.5rem;
+    z-index: 20;
+    margin-top: 3rem;
+
+    @include mobile {
+        top: -1rem;
+        left: 1rem;
+        margin-top: 3rem;
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 4rem;
+    right: 9rem;
+    z-index: 20;
+    background: white;
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    @include tablet {
+        right: 2rem;
+    }
+
+    @include mobile {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem;
+
+        .nav-text {
+            display: none;
+        }
+    }
+
+    .dark & {
+        background: $dark-background;
+        box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-content {
+        @include flex-center;
+        gap: 2rem;
+        font-size: 0.938rem;
+
+        @include mobile {
+            gap: 0.5rem;
+        }
+
+        span {
+            color: #4b5563;
+
+            .dark & {
+                color: #9ca3af;
+            }
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .dark & {
+                color: #9ca3af;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+
+        .get-started {
+            @include flex-center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            @include mobile {
+                .text {
+                    display: none;
+                }
+            }
+
+            .icon-container {
+                background-color: $primary-color;
+                color: white;
+                padding: 0.25rem;
+                border-radius: 9999px;
+                @include flex-center;
+                justify-content: center;
+            }
+
+            .text {
+                color: $primary-color;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.main-content {
+    margin: 0 0.5rem;
+    padding: 0 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+
+    @include mobile {
+        padding: 6rem 1rem 2rem 1rem;
+        margin: 0;
+        padding-bottom: 3rem;
+        padding-top: 2rem;
+    }
+
+    .content-wrapper {
+        max-width: 48rem;
+        margin-top: 1.5rem;
+
+        .subtitle {
+            font-family: monospace;
+            font-weight: normal;
+            color: $text-color;
+            font-size: 1rem;
+
+            .dark & {
+                color: $dark-text;
+            }
+
+            @include mobile {
+                font-size: 0.875rem;
+            }
+        }
+
+        h1,
+        h2 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: $text-color;
+            font-size: 3.25rem;
+
+            .dark & {
+                color: $dark-text;
+            }
+
+            @include mobile {
+                font-size: 2rem;
+            }
+        }
+
+        h3 {
+            font-size: 3.875rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(to bottom, $primary-color, $secondary-color);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            @include mobile {
+                font-size: 2.5rem;
+            }
+        }
+
+        p {
+            font-size: 0.938rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #6b7280;
+
+            .dark & {
+                color: #9ca3af;
+            }
+
+            span {
+                color: black;
+
+                .dark & {
+                    color: white;
+                }
+            }
+
+            @include mobile {
+                font-size: 0.875rem;
+            }
+        }
+
+        .button-group {
+            @include flex-center;
+            gap: 0.75rem;
+
+            @include mobile {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .primary-button {
+                @include button-base;
+                background-color: $primary-color;
+                color: white;
+            }
+
+            .secondary-button {
+                @include button-base;
+                background-color: white;
+                color: #4b5563;
+
+                .dark & {
+                    background-color: $dark-background;
+                    color: $dark-text;
+                    border: 1px solid #374151;
+                }
+            }
+        }
+    }
+}
+
+.bottom-blob {
+    position: absolute;
+    bottom: -85%;
+    right: -36%;
+    width: 1500px;
+    height: 1500px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        $primary-color 0%,
+        rgba(69, 197, 175, 0.1) 45%,
+        rgba(69, 197, 175, 0) 70%
+    );
+    z-index: -1;
+
+    @include mobile {
+        bottom: -50%;
+        right: -100%;
+        width: 800px;
+        height: 800px;
+    }
+}

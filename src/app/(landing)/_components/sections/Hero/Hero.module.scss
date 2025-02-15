@@ -1,0 +1,53 @@
+@use "@/styles/tokens" as *;
+
+.heroSection {
+    background-color: $color-bg-100;
+    overflow: hidden;
+    z-index: 1;
+    p {
+        max-width: 780px;
+    }
+}
+
+.logo {
+    display: block;
+    object-fit: contain;
+    height: 86px;
+    margin: 0 auto;
+}
+
+.glowBgBase {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: 75%;
+    z-index: -2;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba($color-primary-dark, 0.2),
+        transparent 90%
+    );
+    filter: blur(100px);
+    transform: translateX(-50%);
+}
+
+.glowBgShine {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 40%;
+    z-index: -2;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba($color-primary, 1),
+        transparent 90%
+    );
+    filter: blur(90px);
+    transform: translateX(-50%);
+}

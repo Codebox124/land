@@ -1,0 +1,47 @@
+@use "@/styles/tokens" as *;
+
+.sectionHeader {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2;
+  margin-bottom: $spacing-10;
+}
+
+.sectionHeader.align-center {
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: $typography-fontSize-xl;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.description {
+  font-size: $typography-fontSize-base;
+  color: $color-text-base;
+  font-weight: 400;
+}
+
+.sectionHeader.size-lg {
+  gap: $spacing-3;
+
+  .title {
+    font-size: $typography-fontSize-xxl;
+  }
+}
+
+.buttons {
+  margin-top: $spacing-1;
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: $spacing-2-5;
+  row-gap: $spacing-1-5;
+}
+
+.buttons.align-center {
+    align-items: center;
+    justify-content: center;
+}

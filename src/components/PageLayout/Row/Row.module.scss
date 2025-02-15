@@ -1,0 +1,64 @@
+@use "@/styles/tokens" as *;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(-1 * $spacing-2);
+
+  &.noWrap {
+    flex-wrap: nowrap;
+  }
+
+  // Justify content variants
+  &.justify-start {
+    justify-content: flex-start;
+  }
+  &.justify-end {
+    justify-content: flex-end;
+  }
+  &.justify-center {
+    justify-content: center;
+  }
+  &.justify-between {
+    justify-content: space-between;
+  }
+  &.justify-around {
+    justify-content: space-around;
+  }
+  &.justify-evenly {
+    justify-content: space-evenly;
+  }
+
+  // Align items variants
+  &.align-start {
+    align-items: flex-start;
+  }
+  &.align-end {
+    align-items: flex-end;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.align-baseline {
+    align-items: baseline;
+  }
+  &.align-stretch {
+    align-items: stretch;
+  }
+
+  &.spacing-0 {
+    margin: 0;
+    > * {
+      padding: 0;
+    }
+  }
+
+  @each $key, $value in $spacing-values-map {
+    &.spacing-#{$key} {
+      margin: calc(-1 * #{$value});
+      > * {
+        padding: #{$value};
+      }
+    }
+  }
+}

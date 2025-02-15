@@ -1,0 +1,108 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.technologies {
+    padding: 6rem 0;
+    background-color: #f9fafbe2;
+
+    .dark & {
+        background-color: #1f2937;
+
+        color: white;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    .section-tag {
+        font-family: $font-mono;
+        color: gray;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        color: black;
+
+        .dark & {
+            color: $text-color;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: 2rem;
+        }
+    }
+
+    .sub-title {
+        text-align: center;
+
+        .dark & {
+            color: white;
+        }
+    }
+
+    .description {
+        max-width: 900px;
+        margin: 0 auto 4rem;
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: black;
+
+        .dark & {
+            color: white;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
+        align-items: center;
+        justify-items: center;
+
+        @media (max-width: $breakpoint-tablet) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem 2rem;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+    }
+
+    .tech-logo {
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+
+        .logo-image {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            max-width: 100%;
+            height: auto;
+
+            &:hover {
+                filter: grayscale(0%);
+                opacity: 1;
+            }
+        }
+    }
+}

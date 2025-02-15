@@ -1,0 +1,107 @@
+@use "_variables" as *;
+@use "_mixins" as *;
+@use "./page.scss";
+
+$text-muted: #6c757d;
+
+.our-approach {
+    padding: 6rem 0;
+    background-color: $background-color;
+
+    .dark & {
+        background-color: #1f2937;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: black;
+        margin-bottom: 4rem;
+
+        .dark & {
+            color: white;
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+            font-size: 2rem;
+        }
+    }
+
+    .steps-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .step-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+        .dark & {
+            background-color: #1f2937;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+            grid-template-columns: 1fr;
+        }
+
+        .step-content {
+            .step-tag {
+                font-family: $font-mono;
+                color: $text-muted;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: $text-primary;
+                margin-bottom: 1rem;
+
+                .dark & {
+                    color: white;
+                }
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: $secondary-color;
+
+                .dark & {
+                    color: #d1d5db;
+                }
+            }
+        }
+
+        .step-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .placeholder {
+                width: 100%;
+                aspect-ratio: 16/9;
+                background-color: rgba($primary-color, 0.1);
+                border-radius: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $text-muted;
+                font-size: 0.875rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,141 @@
+@use "_mixins" as *;
+@use "_variables" as *;
+
+$dark-bg: #121212;
+$dark-text: #e0e0e0;
+$dark-card: #1e1e1e;
+
+$breakpoint-mobile: 640px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+$font-size-small: 14px;
+$font-size-base: 16px;
+$font-size-large: 18px;
+$font-size-xl: 24px;
+$font-size-2xl: 32px;
+$font-size-3xl: 48px;
+
+.why-choose-us {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 100px;
+    background: $background-color;
+    color: $text-primary;
+    transition: background 0.3s, color 0.3s;
+
+    &.dark {
+        background: $dark-bg;
+        color: $dark-text;
+    }
+
+    .content {
+        max-width: 500px;
+        .tag {
+            font-size: $font-size-small;
+            color: $secondary-color;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h2 {
+            font-size: $font-size-2xl;
+            font-weight: bold;
+            color: $text-color;
+            margin: 15px 0;
+
+            .dark & {
+                color: $dark-text;
+            }
+        }
+        .description {
+            font-size: $font-size-large;
+            color: $text-color;
+            margin-bottom: 20px;
+
+            .dark & {
+                color: $dark-text;
+            }
+        }
+        .cta-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: $primary-color;
+            color: #fff;
+            font-size: $font-size-base;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+            &:hover {
+                background: mix($primary-color, black, 80%);
+            }
+        }
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 500px;
+    }
+
+    .feature-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: background 0.3s;
+
+        .dark & {
+            color: $dark-text;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: $font-size-2xl;
+            color: $secondary-color;
+        }
+        .text {
+            h3 {
+                font-size: $font-size-large;
+                font-weight: bold;
+                color: $text-color;
+
+                .dark & {
+                    color: $dark-text;
+                }
+            }
+            p {
+                font-size: $font-size-base;
+                color: $text-color;
+                margin-top: 5px;
+
+                .dark & {
+                    color: $dark-text;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .why-choose-us {
+        flex-direction: column;
+        padding: 40px 50px;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .why-choose-us {
+        padding: 20px;
+    }
+}
